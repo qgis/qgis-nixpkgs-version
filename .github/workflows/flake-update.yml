@@ -38,7 +38,7 @@ jobs:
           body: |
             Update shared nixpkgs version.
 
-            After this PR is merged, run `nix flake update nixpkgs`
+            After this PR is merged, run `nix flake update nixpkgs-version`
             in depending repositories.
           branch: flake-update-action-pr
           delete-branch: true
