@@ -55,7 +55,7 @@ Add this repository as an input to your `flake.nix`:
 ```nix
 {
   inputs = {
-    nixpkgs-version.url = "github:QGIS/nixpkgs-version";
+    nixpkgs-version.url = "github:QGIS/qgis-nixpkgs-version";
     nixpkgs.follows = "nixpkgs-version/nixpkgs-25-05";
   };
   
