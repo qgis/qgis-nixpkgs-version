@@ -13,11 +13,11 @@ jobs:
       contents: write
     strategy:
       matrix:
-        version: [nixpkgs-25-05, nixpkgs-unstable]
+        version: [nixpkgs-25-11, nixpkgs-unstable]
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.PAT }}
