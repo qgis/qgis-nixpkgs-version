@@ -31,17 +31,17 @@ This flake exposes two nixpkgs inputs:
 # flake.nix
 {
   description = "Shared nixpkgs versions for QGIS";
-  inputs.nixpkgs-25-05.url = "github:NixOS/nixpkgs/nixos-25.05";
+  inputs.nixpkgs-25-11.url = "github:NixOS/nixpkgs/nixos-25.11";
   inputs.nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  outputs = { self, nixpkgs-25-05, nixpkgs-unstable }: {
-    inherit nixpkgs-25-05 nixpkgs-unstable;
+  outputs = { self, nixpkgs-25-11, nixpkgs-unstable }: {
+    inherit nixpkgs-25-11 nixpkgs-unstable;
   };
 }
 ```
 
 ### Available Versions
 
-- **`nixpkgs-25-05`** – Stable NixOS 25.05 release
+- **`nixpkgs-25-11`** – Stable NixOS 25.11 release
 - **`nixpkgs-unstable`** – Rolling unstable channel with latest packages
 
 ## 🚀 Usage
@@ -56,7 +56,7 @@ Add this repository as an input to your `flake.nix`:
 {
   inputs = {
     nixpkgs-version.url = "github:QGIS/qgis-nixpkgs-version";
-    nixpkgs.follows = "nixpkgs-version/nixpkgs-25-05";
+    nixpkgs.follows = "nixpkgs-version/nixpkgs-25-11";
   };
   
   outputs = { self, nixpkgs, nixpkgs-version, ... }: {
@@ -89,7 +89,7 @@ This repository includes a GitHub Actions workflow that automatically keeps nixp
 
 - **Schedule**: Runs weekly every **Sunday at 1:00 AM UTC** (`0 1 * * 0`)
 - **Manual Trigger**: Can be triggered manually via `workflow_dispatch`
-- **Updates**: Both `nixpkgs-25-05` and `nixpkgs-unstable` (via matrix strategy)
+- **Updates**: Both `nixpkgs-25-11` and `nixpkgs-unstable` (via matrix strategy)
 - **Process**:
   1. Checks out the repository
   2. Installs Nix
