@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    strategy:
-      matrix:
-        version: [nixpkgs-26-05, nixpkgs-unstable]
 
     steps:
       - name: Check out repository
@@ -27,13 +24,13 @@ jobs:
 
       - name: Run flake update
         run: >
-          nix flake update ${{ matrix.version }}
+          nix flake update nixpkgs-26-5 nixpkgs-unstable
 
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions"
           git config user.email "noreply@github.com"
           git add flake.lock
-          git diff --cached --quiet || git commit -m "flake: flake update ${{ matrix.version }}"
+          git diff --cached --quiet || git commit -m "flake: flake update nixpkgs-26-5 nixpkgs-unstable"
           git push origin main
 
